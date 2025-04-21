@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Product Scraper</title>
+</head>
+<body>
+    <h1>Amazon Product Scraper</h1>
+
+    <form method="POST">
+        <label for="product_id">Enter Amazon Product ID (ASIN):</label><br>
+        <input type="text" id="product_id" name="product_id" required>
+        <button type="submit">Get Product Details</button>
+    </form>
+
+    {% if first_scrape %}
+        <h2>First Scrape:</h2>
+        <ul>
+            <li><strong>Title:</strong> {{ first_scrape.title }}</li>
+            <li><strong>Price:</strong> {{ first_scrape.price }}</li>
+            <li><strong>Rating:</strong> {{ first_scrape.rating }}</li>
+        </ul>
+    {% endif %}
+
+    {% if second_scrape %}
+        <h2>Second Scrape (after 1 min):</h2>
+        <ul>
+            <li><strong>Title:</strong> {{ second_scrape.title }}</li>
+            <li><strong>Price:</strong> {{ second_scrape.price }}</li>
+            <li><strong>Rating:</strong> {{ second_scrape.rating }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
